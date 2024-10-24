@@ -59,4 +59,4 @@ Working with no storyboard
 
 ## Saving our work 
  
- - ignoring files using .gitignore
+ - ignoring files using .gitigno re
