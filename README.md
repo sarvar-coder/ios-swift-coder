@@ -74,3 +74,5 @@ Working with no storyboard
 - protocol delegate pattern that we lean
 
 ![](images/5.png)
+
+- [d] adding first item of pages with car image and description of app. Actially it's view controller  

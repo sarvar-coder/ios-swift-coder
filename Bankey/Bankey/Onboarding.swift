@@ -61,7 +61,7 @@ class OnboardingViewController: UIViewController {
 }
 
 // MARK: - UIPageViewControllerDataSource
-extension OnboardingContainerViewController: UIPageViewControllerDataSource {
+extension OnboardingViewController: UIPageViewControllerDataSource {
 
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
         return getPreviousViewController(from: viewController)

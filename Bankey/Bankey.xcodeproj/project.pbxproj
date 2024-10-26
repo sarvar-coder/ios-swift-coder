@@ -13,6 +13,7 @@
 		5E419BF22CCA19A800C23A41 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E419BF02CCA19A800C23A41 /* LaunchScreen.storyboard */; };
 		5E419BFC2CCA1F4100C23A41 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419BFB2CCA1F4100C23A41 /* LoginView.swift */; };
 		5E419C252CCCCAC500C23A41 /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C242CCCCAC500C23A41 /* Onboarding.swift */; };
+		5E419C272CCCCE3900C23A41 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C262CCCCE3900C23A41 /* FirstViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5E419BF32CCA19A800C23A41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E419BFB2CCA1F4100C23A41 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		5E419C242CCCCAC500C23A41 /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		5E419C262CCCCE3900C23A41 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,10 +58,10 @@
 		5E419BE42CCA19A600C23A41 /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
-				5E419BF92CCA1ED800C23A41 /* Files */,
 				5E419BFA2CCA1F1500C23A41 /* Login */,
 				5E419C1F2CCCC8D000C23A41 /* Onboarding */,
 				5E419BE52CCA19A600C23A41 /* AppDelegate.swift */,
+				5E419BF92CCA1ED800C23A41 /* Files */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -87,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				5E419C242CCCCAC500C23A41 /* Onboarding.swift */,
+				5E419C262CCCCE3900C23A41 /* FirstViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5E419C272CCCCE3900C23A41 /* FirstViewController.swift in Sources */,
 				5E419BFC2CCA1F4100C23A41 /* LoginView.swift in Sources */,
 				5E419BEA2CCA19A600C23A41 /* LoginViewController.swift in Sources */,
 				5E419C252CCCCAC500C23A41 /* Onboarding.swift in Sources */,
