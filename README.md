@@ -75,4 +75,5 @@ Working with no storyboard
 
 ![](images/5.png)
 
-- [d] adding first item of pages with car image and description of app. Actially it's view controller  
+- [] adding first item of pages with car image and description of app. Actially it's view controller  
+- in this lecture 31 We creare viewController and reUse it by adding two variables imageName and titleText 
