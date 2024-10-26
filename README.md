@@ -84,3 +84,5 @@ Working with no storyboard
 - learn protocol Delegate Pattern 
 - we implement the loginviewcontrollerdelegate and onboardingcontroller delegate in order to notify the Appdelegate class for making naviagtion flow through views
 - and also making a smoothly transation 
+- using UserDefaulst to save hasOnboarded. it means onboarding screen showed only first time 
+- added dummy logout view controlller for testing
