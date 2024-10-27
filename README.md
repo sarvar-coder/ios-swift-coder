@@ -101,3 +101,14 @@ Working with no storyboard
 - creating tab bar controller with three dummy view controllers
 
 # Account Summary Header
+- in this ection creating new branch called account-summary where we will work and at the end done wworking flawlessly then we merge this branch to main branch 
+- table view added 
+- create cutom header view  and add this custom view  as tablView's header view 
+- also while creating header view we use nib file 
+
+- what nib files are 
+- how they work 
+- they are just trush 
+
+- header view added finally 
+
