@@ -111,4 +111,12 @@ Working with no storyboard
 - they are just trush 
 
 - header view added finally  
+- fistly i tried to add header view by using xib file but it failed. ihave done everything programmatically phew, volla
+
+
+# Adding table view cell section 
+- in this section we creatd cell view programmatically 
+- styling it with flawlessly 
+- add dummy data
+
 

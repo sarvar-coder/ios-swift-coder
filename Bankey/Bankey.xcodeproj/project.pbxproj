@@ -21,6 +21,7 @@
 		5E419C332CCE084300C23A41 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */; };
 		5E419C352CCE0D9500C23A41 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */; };
 		5E879CB62CCE3F3D00AF99D2 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB52CCE3F3D00AF99D2 /* Factories.swift */; };
+		5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
 		5E879CB52CCE3F3D00AF99D2 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
+		5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,9 +128,26 @@
 			isa = PBXGroup;
 			children = (
 				5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */,
-				5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */,
+				5E879CB72CCE4AFA00AF99D2 /* Header */,
+				5E879CB82CCE4B0600AF99D2 /* Cell */,
 			);
 			name = AccountSummary;
+			sourceTree = "<group>";
+		};
+		5E879CB72CCE4AFA00AF99D2 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+		5E879CB82CCE4B0600AF99D2 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */,
+			);
+			name = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E419C272CCCCE3900C23A41 /* FirstViewController.swift in Sources */,
+				5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */,
 				5E419C2C2CCD200500C23A41 /* LocalState.swift in Sources */,
 				5E419C2E2CCDF62E00C23A41 /* UIViewControllers+Ext.swift in Sources */,
 				5E419C352CCE0D9500C23A41 /* AccountSummaryHeaderView.swift in Sources */,

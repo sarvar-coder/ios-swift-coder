@@ -69,6 +69,6 @@ class AccountSummaryHeaderView: UIView {
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackViewH.bottomAnchor, multiplier: 2),
             stackViewH.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackViewH.trailingAnchor, multiplier: 2) ,
-        ])
+        ]) 
     }
 }
