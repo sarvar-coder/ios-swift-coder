@@ -9,13 +9,8 @@ import Foundation
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
-    
-    let games = [
-        "Pacman",
-        "Space Invaders",
-        "Space Patrol",
-    ]
-    
+
+    var accounts = [AccountSummaryCell.ViewModel]()
     var tableView = UITableView()
     
     override func viewDidLoad() {
@@ -28,6 +23,7 @@ extension AccountSummaryViewController {
     private func setup() {
         setupTableView()
         setupHeaderView()
+        fetchData()
     }
     
     private func setupTableView() {
@@ -48,6 +44,7 @@ extension AccountSummaryViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
+    
     private func setupHeaderView() {
         let header = AccountSummaryHeaderView(frame: .zero)
         
@@ -62,18 +59,43 @@ extension AccountSummaryViewController {
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard !accounts.isEmpty else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "No data"
+            cell.imageView?.image = UIImage(systemName: "face.smiling", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
-//        cell.textLabel?.text = games[indexPath.row]
+        let account = accounts[indexPath.row]
+        cell.configure(with: account)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return accounts.count
     }
 }
 
 extension AccountSummaryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+extension AccountSummaryViewController {
+    private func fetchData() {
+        let savings = AccountSummaryCell.ViewModel(accountType: .Banking,
+                                                    accountName: "Basic Savings")
+        let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard,
+                                                       accountName: "Visa Avion Card")
+        let investment = AccountSummaryCell.ViewModel(accountType: .Investment,
+                                                       accountName: "Tax-Free Saver")
+
+        accounts.append(savings)
+        accounts.append(visa)
+        accounts.append(investment)
     }
 }

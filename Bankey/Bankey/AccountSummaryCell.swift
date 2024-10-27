@@ -9,7 +9,20 @@ import Foundation
 import UIKit
 
  class AccountSummaryCell: UITableViewCell {
+     
+     enum AccountType: String {
+         case Banking
+         case Investment
+         case CreditCard
+     }
+     
+     struct ViewModel {
+         let accountType: AccountType
+         let accountName: String
+     }
     
+     let viewModel: ViewModel? = nil
+     
      let typeLabel = UILabel()
      let dividerView = UIView()
      let nameLabel = UILabel()
@@ -66,11 +79,7 @@ extension AccountSummaryCell {
         chevronImage.translatesAutoresizingMaskIntoConstraints = false
         chevronImage.tintColor = appColor
         chevronImage.image = UIImage(systemName: "chevron.right")
-        
-        
-        
-         
-        
+    
     }
     private func layout() {
         contentView.addSubview(typeLabel)
@@ -80,7 +89,6 @@ extension AccountSummaryCell {
         stackView.addArrangedSubview(balanceLabel)
         stackView.addArrangedSubview(balanceAmount)
         contentView.addSubview(chevronImage)
-        
         
         // Type label
         NSLayoutConstraint.activate( [
@@ -125,5 +133,25 @@ extension AccountSummaryCell {
         rootString.append(centString)
         
         return rootString
+    }
+}
+
+extension AccountSummaryCell {
+     func configure(with vm: ViewModel) {
+         typeLabel.text = vm.accountType.rawValue
+         nameLabel.text = vm.accountName
+        
+        switch vm.accountType {
+            
+        case .Banking:
+            dividerView.backgroundColor = appColor
+            balanceLabel.text = "Current Balance"
+        case .Investment:
+            balanceLabel.text = "Current Balance"
+            dividerView.backgroundColor = .systemPurple
+        case .CreditCard:
+            balanceLabel.text = "Value"
+            dividerView.backgroundColor = .systemOrange
+        }
     }
 }
