@@ -173,9 +173,6 @@ extension OnboardingViewController {
                 self.nextButton.isHidden = true
                 self.doneButton.isHidden = false
             }
-                
-            
-            
         }
     }
     
@@ -186,5 +183,4 @@ extension OnboardingViewController {
             self.doneButton.isHidden = true
         }
     }
-    
 }

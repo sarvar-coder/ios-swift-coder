@@ -27,6 +27,5 @@ class LogoutViewController: UIViewController {
     }
     @objc func buttonTapped(_ sender: UIButton) {
         delegate?.didTap()
-    }
-    
+    }  
 }

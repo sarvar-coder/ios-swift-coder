@@ -86,3 +86,15 @@ Working with no storyboard
 - and also making a smoothly transation 
 - using UserDefaulst to save hasOnboarded. it means onboarding screen showed only first time 
 - added dummy logout view controlller for testing
+
+# Container View Contollers 
+
+- UINavigationViewControllers
+- UITabBarViewControllers
+- UIPageVieControllers 
+
+- what are they 
+- how they work 
+- when and why to use them 
+
+##### decription Container View Contollers are view contollers that contain or combine content from other view contollers into a single working interface 
