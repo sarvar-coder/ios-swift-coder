@@ -49,7 +49,7 @@ extension AccountSummaryViewController {
         
         var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = UIScreen.main.bounds.width
-        size.height = 144 
+        size.height = 144  
         header.frame.size = size
         
         tableView.tableHeaderView = header
