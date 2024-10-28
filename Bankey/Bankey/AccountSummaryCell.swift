@@ -19,6 +19,11 @@ import UIKit
      struct ViewModel {
          let accountType: AccountType
          let accountName: String
+         let balance: Decimal
+         
+         var balanceAttributedString: NSAttributedString {
+             CurrencyFormatter().makeAttributedCurrency(balance)
+         }
      }
     
      let viewModel: ViewModel? = nil
@@ -73,7 +78,7 @@ extension AccountSummaryCell {
         balanceLabel.text = "Balance Label"
         
         balanceAmount.translatesAutoresizingMaskIntoConstraints = false
-        balanceAmount.attributedText = makeFormattedBalance(dollars: "929,466", cents: "23")
+        balanceAmount.attributedText = makeFormattedBalance(dollars: "xxxxx", cents: "xx")
         balanceAmount.textAlignment = .right
         
         chevronImage.translatesAutoresizingMaskIntoConstraints = false
@@ -109,7 +114,7 @@ extension AccountSummaryCell {
         NSLayoutConstraint.activate( [
             stackView.topAnchor.constraint(equalToSystemSpacingBelow: dividerView.bottomAnchor, multiplier: 0),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 4),
-            stackView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 4),
+            stackView.leadingAnchor.constraint(equalTo: nameLabel.trailingAnchor, constant: 16),
         ])
         NSLayoutConstraint.activate([
             chevronImage.topAnchor.constraint(equalToSystemSpacingBelow: dividerView.bottomAnchor, multiplier: 1),
@@ -140,6 +145,7 @@ extension AccountSummaryCell {
      func configure(with vm: ViewModel) {
          typeLabel.text = vm.accountType.rawValue
          nameLabel.text = vm.accountName
+         balanceAmount.attributedText = vm.balanceAttributedString
         
         switch vm.accountType {
             
