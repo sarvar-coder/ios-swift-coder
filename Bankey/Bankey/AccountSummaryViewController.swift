@@ -15,6 +15,7 @@ class AccountSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundColor = appColor
         setup()
     }
 }

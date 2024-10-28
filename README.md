@@ -118,5 +118,13 @@ Working with no storyboard
 - in this section we creatd cell view programmatically 
 - styling it with flawlessly 
 - add dummy data
+### what we have learnt 
+- programtic cell view 
+- nsAttributedstring 
+- save work incrementelly 
+- view models
+- leverage enums 
+- currency formatting 
+- Status/ navbar colors 
 
 
