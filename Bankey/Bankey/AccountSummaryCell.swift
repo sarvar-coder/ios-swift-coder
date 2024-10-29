@@ -64,6 +64,7 @@ extension AccountSummaryCell {
         dividerView.backgroundColor = appColor
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.adjustsFontSizeToFitWidth = true
         nameLabel.text = "Name Label"
         nameLabel.adjustsFontForContentSizeCategory = true
         nameLabel.font = .preferredFont(forTextStyle: .body)
@@ -75,6 +76,7 @@ extension AccountSummaryCell {
         balanceLabel.translatesAutoresizingMaskIntoConstraints = false
         balanceLabel.font = .preferredFont(forTextStyle: .body)
         balanceLabel.textAlignment = .right
+        balanceLabel.adjustsFontSizeToFitWidth = true
         balanceLabel.text = "Balance Label"
         
         balanceAmount.translatesAutoresizingMaskIntoConstraints = false

@@ -26,6 +26,7 @@
 		5E879CBE2CCF54C300AF99D2 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */; };
 		5E879D172CD09DC200AF99D2 /* CurrencyFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879D162CD09DC200AF99D2 /* CurrencyFormatterTest.swift */; };
 		5E879D192CD0B06000AF99D2 /* NSNotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */; };
+		5E879D1B2CD0B32200AF99D2 /* UITextField+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879D1A2CD0B32200AF99D2 /* UITextField+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		5E879D0D2CD09D0E00AF99D2 /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E879D162CD09DC200AF99D2 /* CurrencyFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTest.swift; sourceTree = "<group>"; };
 		5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterName.swift; sourceTree = "<group>"; };
+		5E879D1A2CD0B32200AF99D2 /* UITextField+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +153,7 @@
 				5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */,
 				5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */,
 				5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */,
+				5E879D1A2CD0B32200AF99D2 /* UITextField+Ext.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				5E879CB62CCE3F3D00AF99D2 /* Factories.swift in Sources */,
 				5E419C252CCCCAC500C23A41 /* Onboarding.swift in Sources */,
 				5E419C302CCDF8F100C23A41 /* MainViewController.swift in Sources */,
+				5E879D1B2CD0B32200AF99D2 /* UITextField+Ext.swift in Sources */,
 				5E419C332CCE084300C23A41 /* AccountSummaryViewController.swift in Sources */,
 				5E419C292CCD18F700C23A41 /* LogoutViewController.swift in Sources */,
 				5E419BE62CCA19A600C23A41 /* AppDelegate.swift in Sources */,
