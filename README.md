@@ -115,10 +115,12 @@ Working with no storyboard
 
 
 # Adding table view cell section 
+
 - in this section we creatd cell view programmatically 
 - styling it with flawlessly 
 - add dummy data
-### what we have learnt 
+
+- what we have learnt 
 - programtic cell view 
 - nsAttributedstring 
 - save work incrementelly 
@@ -128,3 +130,14 @@ Working with no storyboard
 - Status/ navbar colors 
 
 
+# Unit testing 
+
+- what are unit tests and why so valuable ?
+- why write them 
+- How do they work 
+- How to add to existing project 
+
+- 1. unit tests are small snippets of code we write prove our software as expected 
+- 2. all  is confidence
+- 3. 
+- 4. by adding new target to existing project 
