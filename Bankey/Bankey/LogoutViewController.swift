@@ -26,6 +26,6 @@ class LogoutViewController: UIViewController {
         button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     @objc func buttonTapped(_ sender: UIButton) {
-        delegate?.didTap()
+        delegate?.didLogout()
     }  
 }

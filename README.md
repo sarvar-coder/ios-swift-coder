@@ -141,3 +141,13 @@ Working with no storyboard
 - 2. all  is confidence
 - 3. 
 - 4. by adding new target to existing project 
+
+# Ntification Center 
+
+- The limits of protocol Delegate 
+- How message Broadcasting works 
+- the mechanics behind the notification center
+- where and when to use this pattern
+
+##### description: When you have a lot of views exm: four. you need to notify last view controller from first view controler here is coming Notification center pattern (observer patter) in rescue. 
+

@@ -25,6 +25,7 @@
 		5E879CBC2CCF546100AF99D2 /* Decimal+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */; };
 		5E879CBE2CCF54C300AF99D2 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */; };
 		5E879D172CD09DC200AF99D2 /* CurrencyFormatterTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879D162CD09DC200AF99D2 /* CurrencyFormatterTest.swift */; };
+		5E879D192CD0B06000AF99D2 /* NSNotificationCenterName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		5E879D0D2CD09D0E00AF99D2 /* BankeyUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BankeyUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E879D162CD09DC200AF99D2 /* CurrencyFormatterTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatterTest.swift; sourceTree = "<group>"; };
+		5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSNotificationCenterName.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				5E879CB52CCE3F3D00AF99D2 /* Factories.swift */,
 				5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */,
 				5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */,
+				5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				5E419C272CCCCE3900C23A41 /* FirstViewController.swift in Sources */,
 				5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */,
 				5E419C2C2CCD200500C23A41 /* LocalState.swift in Sources */,
+				5E879D192CD0B06000AF99D2 /* NSNotificationCenterName.swift in Sources */,
 				5E419C2E2CCDF62E00C23A41 /* UIViewControllers+Ext.swift in Sources */,
 				5E879CBE2CCF54C300AF99D2 /* CurrencyFormatter.swift in Sources */,
 				5E419C352CCE0D9500C23A41 /* AccountSummaryHeaderView.swift in Sources */,

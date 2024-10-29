@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LogoutViewControllerDelegate: AnyObject {
-    func didTap()
+    func didLogout()
 }
 
 protocol LoginViewControllerDelegate: AnyObject {
