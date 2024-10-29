@@ -155,3 +155,11 @@ Working with no storyboard
   
 - what can we do this. Simple we change the constraints. example we have label before view is loaded we changed the constraints and view is loaded we change back. animation happened
 - ``` self.view.layoutIfNeeded() // Use this method to force the view to update its layout immediately. ```
+-
+
+# Animation with Core Animation  
+
+- starting with CA everything in UIKit  that is core animation
+- its power is its speed. CA can update everything view 60 times per second 
+- that's why considired high level 
+
