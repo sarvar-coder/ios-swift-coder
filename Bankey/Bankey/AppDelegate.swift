@@ -16,46 +16,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginViewController = LoginViewController()
     let onboardingViewController = OnboardingViewController()
-    
     let mainViewController = MainViewController()
-    
-    
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        
-        
+    
         loginViewController.delegate = self
         onboardingViewController.delegate = self
         
-        let vc = mainViewController
-        vc.setStatusBar()
-        
+        displayLOginView()
+        return true
+    }
+    
+    private func displayLOginView() {
+        setRootViewControllers(loginViewController)
+    }
+    
+    private func displayNextScreen() {
+        if LocalState.hasOnboarded {
+            prepMainView()
+            setRootViewControllers(mainViewController)
+        } else {
+            setRootViewControllers(onboardingViewController)
+        }
+    }
+    
+    private func prepMainView() {
+        mainViewController.setStatusBar()
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().backgroundColor = appColor
-        
-        window?.rootViewController = vc
-        
-        return true
     }
 }
 
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnboarded {
-            setRootViewControllers(mainViewController)
-        } else {
-            setRootViewControllers(onboardingViewController)
-        }
+        displayNextScreen()
     }
 }
 
 extension AppDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded.toggle()
+        prepMainView()
         setRootViewControllers(mainViewController)
     }
 }
