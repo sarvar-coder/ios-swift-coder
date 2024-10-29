@@ -15,7 +15,7 @@ class AccountSummaryHeaderView: UIView {
     let titleLabel = makeLabel(text: "Bankey", font: .title1)
     let greetingLabel = makeLabel(text: "Good Morning", font: .body)
     let nameLabel = makeLabel(text: "Sarvar", font: .body)
-    let dateLabel = makeLabel(text: "2-fevral", font: .body)
+    let dateLabel = makeLabel(text: "\(Date().formatted(date: .abbreviated, time: .omitted ))", font: .body)
     let imageView = UIImageView()
     
     override init(frame: CGRect) {

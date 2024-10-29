@@ -151,3 +151,7 @@ Working with no storyboard
 
 ##### description: When you have a lot of views exm: four. you need to notify last view controller from first view controler here is coming Notification center pattern (observer patter) in rescue. 
 
+# Animation with constraints 
+  
+- what can we do this. Simple we change the constraints. example we have label before view is loaded we changed the constraints and view is loaded we change back. animation happened
+- ``` self.view.layoutIfNeeded() // Use this method to force the view to update its layout immediately. ```
