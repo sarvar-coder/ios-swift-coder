@@ -98,3 +98,46 @@ Working with no storyboard
 - when and why to use them 
 
 ##### decription Container View Contollers are view contollers that contain or combine content from other view contollers into a single working interface 
+- creating tab bar controller with three dummy view controllers
+
+# Account Summary Header
+- in this ection creating new branch called account-summary where we will work and at the end done wworking flawlessly then we merge this branch to main branch 
+- table view added 
+- create cutom header view  and add this custom view  as tablView's header view 
+- also while creating header view we use nib file 
+
+- what nib files are 
+- how they work 
+- they are just trush 
+
+- header view added finally  
+- fistly i tried to add header view by using xib file but it failed. ihave done everything programmatically phew, volla
+
+
+# Adding table view cell section 
+
+- in this section we creatd cell view programmatically 
+- styling it with flawlessly 
+- add dummy data
+
+- what we have learnt 
+- programtic cell view 
+- nsAttributedstring 
+- save work incrementelly 
+- view models
+- leverage enums 
+- currency formatting 
+- Status/ navbar colors 
+
+
+# Unit testing 
+
+- what are unit tests and why so valuable ?
+- why write them 
+- How do they work 
+- How to add to existing project 
+
+- 1. unit tests are small snippets of code we write prove our software as expected 
+- 2. all  is confidence
+- 3. 
+- 4. by adding new target to existing project 

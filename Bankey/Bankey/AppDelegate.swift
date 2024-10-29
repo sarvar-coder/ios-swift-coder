@@ -16,22 +16,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginViewController = LoginViewController()
     let onboardingViewController = OnboardingViewController()
-    let logoutViewController = LogoutViewController()
+    
     let mainViewController = MainViewController()
     
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         
-        loginViewController.delegate = self
-        onboardingViewController.delegate = self
-        logoutViewController.delegate = self
-        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        window?.rootViewController = mainViewController
-        //        window?.rootViewController = onboardingViewController
+        
+        
+        loginViewController.delegate = self
+        onboardingViewController.delegate = self
+        
+        let vc = mainViewController
+        vc.setStatusBar()
+        
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = appColor
+        
+        window?.rootViewController = vc
         
         return true
     }
@@ -40,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
         if LocalState.hasOnboarded {
-            setRootViewControllers(logoutViewController)
+            setRootViewControllers(mainViewController)
         } else {
             setRootViewControllers(onboardingViewController)
         }
@@ -50,7 +56,7 @@ extension AppDelegate: LoginViewControllerDelegate {
 extension AppDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded.toggle()
-        setRootViewControllers(logoutViewController)
+        setRootViewControllers(mainViewController)
     }
 }
 
