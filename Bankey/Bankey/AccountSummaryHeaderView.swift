@@ -17,6 +17,7 @@ class AccountSummaryHeaderView: UIView {
     let nameLabel = makeLabel(text: "Sarvar", font: .body)
     let dateLabel = makeLabel(text: "\(Date().formatted(date: .abbreviated, time: .omitted ))", font: .body)
     let imageView = UIImageView()
+    let shakeyBellView = ShakeyBellView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -51,11 +52,13 @@ class AccountSummaryHeaderView: UIView {
         let image = UIImage(systemName: "sun.max.fill", withConfiguration: configuration)
         imageView.image = image
         
+        shakeyBellView.translatesAutoresizingMaskIntoConstraints = false
+        shakeyBellView.isUserInteractionEnabled = true
     }
     
     func
     layout() {
-    addSubview(stackViewH)
+        addSubview(stackViewH)
         stackViewH.addArrangedSubview(stackView)
         stackViewH.addArrangedSubview(imageView)
         
@@ -64,11 +67,15 @@ class AccountSummaryHeaderView: UIView {
         stackView.addArrangedSubview(nameLabel)
         stackView.addArrangedSubview(dateLabel)
         
+        addSubview(shakeyBellView)
+        
         NSLayoutConstraint.activate([
             stackViewH.topAnchor.constraint(equalTo: topAnchor),
             bottomAnchor.constraint(equalToSystemSpacingBelow: stackViewH.bottomAnchor, multiplier: 2),
             stackViewH.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 2),
             trailingAnchor.constraint(equalToSystemSpacingAfter: stackViewH.trailingAnchor, multiplier: 2) ,
-        ]) 
+            shakeyBellView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            shakeyBellView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor)
+        ])
     }
 }
