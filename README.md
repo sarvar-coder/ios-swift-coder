@@ -163,3 +163,25 @@ Working with no storyboard
 - its power is its speed. CA can update everything view 60 times per second 
 - that's why considired high level 
 
+
+# Networking Section 
+- adding NEtworking to project 
+- Parsing json with Codable 
+- URLSession 
+- ResultType 
+- Update UI on the main thread 
+- Unit testing JSON code 
+- How to leverage plaugrounds when building apps 
+- functional programming (Maps)
+
+- How Does Networking work
+- we do network call in URLSession to server. Then we need to parse the json data to our codable struct that we need to create format to be fit to data which is coming from server 
+- only update the ui on the main thread 
+``` DispatchQueue.main.async {
+   // On main thread
+}
+```
+- note: Learning networking is best way to wotk with swift palayground
+
+- done challenge 
+ 

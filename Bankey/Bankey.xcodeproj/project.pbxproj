@@ -19,6 +19,8 @@
 		5E419C302CCDF8F100C23A41 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C2F2CCDF8F100C23A41 /* MainViewController.swift */; };
 		5E419C332CCE084300C23A41 /* AccountSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */; };
 		5E419C352CCE0D9500C23A41 /* AccountSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */; };
+		5E6E30D12CD234EB00001FC9 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D02CD234EB00001FC9 /* Date+Ext.swift */; };
+		5E6E30D32CD236D000001FC9 /* AccountSummaryViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D22CD236D000001FC9 /* AccountSummaryViewController+Networking.swift */; };
 		5E879CB62CCE3F3D00AF99D2 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB52CCE3F3D00AF99D2 /* Factories.swift */; };
 		5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */; };
 		5E879CBC2CCF546100AF99D2 /* Decimal+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */; };
@@ -54,6 +56,8 @@
 		5E419C2F2CCDF8F100C23A41 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryViewController.swift; sourceTree = "<group>"; };
 		5E419C342CCE0D9500C23A41 /* AccountSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryHeaderView.swift; sourceTree = "<group>"; };
+		5E6E30D02CD234EB00001FC9 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		5E6E30D22CD236D000001FC9 /* AccountSummaryViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryViewController+Networking.swift"; sourceTree = "<group>"; };
 		5E879CB52CCE3F3D00AF99D2 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ext.swift"; sourceTree = "<group>"; };
@@ -154,6 +158,7 @@
 				5E879CBD2CCF54C300AF99D2 /* CurrencyFormatter.swift */,
 				5E879D182CD0B06000AF99D2 /* NSNotificationCenterName.swift */,
 				5E879D1A2CD0B32200AF99D2 /* UITextField+Ext.swift */,
+				5E6E30D02CD234EB00001FC9 /* Date+Ext.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				5E419C322CCE084300C23A41 /* AccountSummaryViewController.swift */,
+				5E6E30D22CD236D000001FC9 /* AccountSummaryViewController+Networking.swift */,
 				5E879CB72CCE4AFA00AF99D2 /* Header */,
 				5E879CB82CCE4B0600AF99D2 /* Cell */,
 			);
@@ -310,6 +316,7 @@
 				5E879CBE2CCF54C300AF99D2 /* CurrencyFormatter.swift in Sources */,
 				5E419C352CCE0D9500C23A41 /* AccountSummaryHeaderView.swift in Sources */,
 				5E879CBC2CCF546100AF99D2 /* Decimal+Ext.swift in Sources */,
+				5E6E30D12CD234EB00001FC9 /* Date+Ext.swift in Sources */,
 				5E419BFC2CCA1F4100C23A41 /* LoginView.swift in Sources */,
 				5E419BEA2CCA19A600C23A41 /* LoginViewController.swift in Sources */,
 				5E879CB62CCE3F3D00AF99D2 /* Factories.swift in Sources */,
@@ -318,6 +325,7 @@
 				5E879D1B2CD0B32200AF99D2 /* UITextField+Ext.swift in Sources */,
 				5E419C332CCE084300C23A41 /* AccountSummaryViewController.swift in Sources */,
 				5E419BE62CCA19A600C23A41 /* AppDelegate.swift in Sources */,
+				5E6E30D32CD236D000001FC9 /* AccountSummaryViewController+Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

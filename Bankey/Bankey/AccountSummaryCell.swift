@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
+enum AccountType: String, Codable {
+    case Banking
+    case Investment
+    case CreditCard
+}
+
  class AccountSummaryCell: UITableViewCell {
-     
-     enum AccountType: String {
-         case Banking
-         case Investment
-         case CreditCard
-     }
-     
+
      struct ViewModel {
          let accountType: AccountType
          let accountName: String

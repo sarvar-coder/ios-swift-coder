@@ -9,9 +9,17 @@ import Foundation
 import UIKit
 
 class AccountSummaryViewController: UIViewController {
+    // Request Model
+    var profile: Profile?
+    var accounts: [Account]?
     
-    var accounts = [AccountSummaryCell.ViewModel]()
+    // View Models
+    var headerViewModel = AccountSummaryHeaderView.ViewModel(welcomeMessage: "Welcome", name: "", date: Date())
+    var accountsCellViewModel = [AccountSummaryCell.ViewModel]()
+    
     var tableView = UITableView()
+    var headerView = AccountSummaryHeaderView(frame: .zero)
+    
     
     lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
@@ -35,7 +43,8 @@ extension AccountSummaryViewController {
     private func setup() {
         setupTableView()
         setupHeaderView()
-        fetchData()
+        
+        fetchDataAndLoadViews()
     }
     
     private func setupTableView() {
@@ -58,21 +67,19 @@ extension AccountSummaryViewController {
     }
     
     private func setupHeaderView() {
-        let header = AccountSummaryHeaderView(frame: .zero)
-        
-        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        var size = headerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         size.width = UIScreen.main.bounds.width
         size.height = 144
-        header.frame.size = size
+        headerView.frame.size = size
         
-        tableView.tableHeaderView = header
+        tableView.tableHeaderView = headerView
     }
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        guard !accounts.isEmpty else {
+        guard !accountsCellViewModel.isEmpty else {
             let cell = UITableViewCell()
             cell.textLabel?.text = "No data"
             cell.imageView?.image = UIImage(systemName: "face.smiling", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
@@ -80,25 +87,25 @@ extension AccountSummaryViewController: UITableViewDataSource {
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
-        let account = accounts[indexPath.row]
+        let account = accountsCellViewModel[indexPath.row]
         cell.configure(with: account)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return accounts.count
+        return accountsCellViewModel.count
     }
 }
 
 extension AccountSummaryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
 extension AccountSummaryViewController {
-    private func fetchData() {
+    private func fetchAccounts() {
         let savings = AccountSummaryCell.ViewModel(accountType: .Banking,
                                                    accountName: "Basic Savings",
                                                    balance: 929466.23)
@@ -117,12 +124,12 @@ extension AccountSummaryViewController {
         let investment2 = AccountSummaryCell.ViewModel(accountType: .Investment,
                                                        accountName: "Growth Fund",
                                                        balance: 15000.00)
-        accounts.append(savings)
-        accounts.append(chequing)
-        accounts.append(visa)
-        accounts.append(masterCard)
-        accounts.append(investment1)
-        accounts.append(investment2)
+        accountsCellViewModel.append(savings)
+        accountsCellViewModel.append(chequing)
+        accountsCellViewModel.append(visa)
+        accountsCellViewModel.append(masterCard)
+        accountsCellViewModel.append(investment1)
+        accountsCellViewModel.append(investment2)
     }
 }
 
@@ -130,5 +137,47 @@ extension AccountSummaryViewController {
 extension AccountSummaryViewController {
     @objc func logoutTapped(sender: UIButton) {
         NotificationCenter.default.post(name: .logout, object: nil)
+    }
+}
+
+// MARK: - Networking
+extension AccountSummaryViewController {
+    private func fetchDataAndLoadViews() {
+        
+        fetchProfile(forUserId: "1") { result in
+            switch result {
+            case .success(let profile):
+                self.profile = profile
+                self.configureTableHeaderView(with: profile)
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+        fetchAccounts(forUserId: "1") { result in
+            switch result {
+            case .success(let accounts):
+                self.accounts = accounts
+                self.configureTableCells(with: accounts)
+                self.tableView.reloadData()
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    private func configureTableHeaderView(with profile: Profile) {
+        let vm = AccountSummaryHeaderView.ViewModel(welcomeMessage: "Good morning,",
+                                                    name: profile.firstName,
+                                                    date: Date())
+        headerView.configure(with: vm)
+    }
+    
+    private func configureTableCells(with accounts: [Account]) {
+        accountsCellViewModel = accounts.map {
+            AccountSummaryCell.ViewModel(accountType: $0.type,
+                                         accountName: $0.name,
+                                         balance: $0.amount)
+        }
     }
 }
