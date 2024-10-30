@@ -186,9 +186,14 @@ Working with no storyboard
 - done challenge 
  
  # Affordances
- 
+ -----
  - new feature never crossed before 
  - confusing
  - bob's your uncle we got this shit 
  - dispatch group very handy thing in swift 
  - when we have a lot of network call. that takes time by using dispatch we perform all network call once at the time not step by step.
+-----
+- refresh controll 
+- it's small indicator for reloading data every app has indicator. You cann see when you pull view to refresh 
+-----
+- skeleton loaders

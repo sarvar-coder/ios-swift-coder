@@ -22,6 +22,8 @@
 		5E6E30D12CD234EB00001FC9 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D02CD234EB00001FC9 /* Date+Ext.swift */; };
 		5E6E30D32CD236D000001FC9 /* AccountSummaryViewController+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D22CD236D000001FC9 /* AccountSummaryViewController+Networking.swift */; };
 		5E6E30D72CD2404100001FC9 /* ProfileTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D62CD2404100001FC9 /* ProfileTest.swift */; };
+		5E6E30D92CD261D200001FC9 /* SceletonLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30D82CD261D200001FC9 /* SceletonLoadable.swift */; };
+		5E6E30DB2CD2629800001FC9 /* SkeletonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E6E30DA2CD2629800001FC9 /* SkeletonCell.swift */; };
 		5E879CB62CCE3F3D00AF99D2 /* Factories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB52CCE3F3D00AF99D2 /* Factories.swift */; };
 		5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */; };
 		5E879CBC2CCF546100AF99D2 /* Decimal+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */; };
@@ -60,6 +62,8 @@
 		5E6E30D02CD234EB00001FC9 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		5E6E30D22CD236D000001FC9 /* AccountSummaryViewController+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountSummaryViewController+Networking.swift"; sourceTree = "<group>"; };
 		5E6E30D62CD2404100001FC9 /* ProfileTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTest.swift; sourceTree = "<group>"; };
+		5E6E30D82CD261D200001FC9 /* SceletonLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceletonLoadable.swift; sourceTree = "<group>"; };
+		5E6E30DA2CD2629800001FC9 /* SkeletonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonCell.swift; sourceTree = "<group>"; };
 		5E879CB52CCE3F3D00AF99D2 /* Factories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factories.swift; sourceTree = "<group>"; };
 		5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		5E879CBB2CCF546100AF99D2 /* Decimal+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Decimal+Ext.swift"; sourceTree = "<group>"; };
@@ -204,6 +208,8 @@
 			isa = PBXGroup;
 			children = (
 				5E879CB92CCE4B2500AF99D2 /* AccountSummaryCell.swift */,
+				5E6E30D82CD261D200001FC9 /* SceletonLoadable.swift */,
+				5E6E30DA2CD2629800001FC9 /* SkeletonCell.swift */,
 			);
 			name = Cell;
 			sourceTree = "<group>";
@@ -327,6 +333,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5E419C272CCCCE3900C23A41 /* FirstViewController.swift in Sources */,
+				5E6E30DB2CD2629800001FC9 /* SkeletonCell.swift in Sources */,
 				5E879D1E2CD0F97300AF99D2 /* ShakyBellView.swift in Sources */,
 				5E879CBA2CCE4B2500AF99D2 /* AccountSummaryCell.swift in Sources */,
 				5E419C2C2CCD200500C23A41 /* LocalState.swift in Sources */,
@@ -344,6 +351,7 @@
 				5E879D1B2CD0B32200AF99D2 /* UITextField+Ext.swift in Sources */,
 				5E419C332CCE084300C23A41 /* AccountSummaryViewController.swift in Sources */,
 				5E419BE62CCA19A600C23A41 /* AppDelegate.swift in Sources */,
+				5E6E30D92CD261D200001FC9 /* SceletonLoadable.swift in Sources */,
 				5E6E30D32CD236D000001FC9 /* AccountSummaryViewController+Networking.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

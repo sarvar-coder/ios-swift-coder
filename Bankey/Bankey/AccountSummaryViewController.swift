@@ -11,7 +11,7 @@ import UIKit
 class AccountSummaryViewController: UIViewController {
     // Request Model
     var profile: Profile?
-    var accounts: [Account]?
+    var accounts = [Account]()
     
     // View Models
     var headerViewModel = AccountSummaryHeaderView.ViewModel(welcomeMessage: "Welcome", name: "", date: Date())
@@ -28,6 +28,8 @@ class AccountSummaryViewController: UIViewController {
         return barButtonItem
     }()
     
+    var isLoaded = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
@@ -41,6 +43,7 @@ extension AccountSummaryViewController {
         setupHeaderView()
         setuptRefreshControll()
         fetchData()
+        setupSkeletons()
     }
     
     private func setupTableView() {
@@ -50,6 +53,7 @@ extension AccountSummaryViewController {
         tableView.backgroundColor = appColor
         
         tableView.register(AccountSummaryCell.self, forCellReuseIdentifier: AccountSummaryCell.reuseId)
+        tableView.register(SkeletonCell.self, forCellReuseIdentifier: SkeletonCell.reuseID)
         tableView.rowHeight = AccountSummaryCell.rowHeight
         tableView.tableFooterView = UIView()
         
@@ -82,6 +86,13 @@ extension AccountSummaryViewController {
         refreshControll.addTarget(self, action: #selector(refrshContent), for: .valueChanged)
         tableView.refreshControl = refreshControll
     }
+    
+    private func setupSkeletons() {
+        let row = Account.makeSkeleton()
+        accounts = Array(repeating: row, count: 10)
+        
+        configureTableCells(with: accounts)
+    }
 }
 
 extension AccountSummaryViewController: UITableViewDataSource {
@@ -94,9 +105,13 @@ extension AccountSummaryViewController: UITableViewDataSource {
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
-        let account = accountsCellViewModel[indexPath.row]
-        cell.configure(with: account)
+        if isLoaded {
+            let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
+            let account = accountsCellViewModel[indexPath.row]
+            cell.configure(with: account)
+        }
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
         
         return cell
     }
@@ -143,12 +158,22 @@ extension AccountSummaryViewController {
 
 // MARK: Actions
 extension AccountSummaryViewController {
+    
     @objc func logoutTapped(sender: UIButton) {
         NotificationCenter.default.post(name: .logout, object: nil)
     }
     
     @objc func refrshContent() {
+        reset()
+        setupSkeletons()
+        tableView.reloadData()
         fetchData()
+    }
+    
+    private func reset() {
+        profile = nil
+        accounts = []
+        isLoaded = false
     }
 }
 
@@ -163,7 +188,6 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let profile):
                 self.profile = profile
-                self.configureTableHeaderView(with: profile)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -174,7 +198,6 @@ extension AccountSummaryViewController {
             switch result {
             case .success(let accounts):
                 self.accounts = accounts
-                self.configureTableCells(with: accounts)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -182,8 +205,14 @@ extension AccountSummaryViewController {
         }
         
         group.notify(queue: .main) {
-            self.tableView.reloadData()
             self.tableView.refreshControl?.endRefreshing()
+            
+            guard let profile = self.profile else { return }
+            
+            self.isLoaded = true
+            self.configureTableHeaderView(with: profile) //
+            self.configureTableCells(with: self.accounts) //
+            self.tableView.reloadData()
         }
     }
     
