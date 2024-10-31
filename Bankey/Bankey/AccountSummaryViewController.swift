@@ -22,6 +22,17 @@ class AccountSummaryViewController: UIViewController {
     var headerView = AccountSummaryHeaderView(frame: .zero)
     let refreshControll = UIRefreshControl()
     
+    // Networking
+    let profilemanager: ProfileManageable = ProfileManager()
+    
+    // Error alert
+    lazy var errorAlert: UIAlertController = {
+        let alert =  UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        return alert
+    }()
+    
+    // bar button
     lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
         barButtonItem.tintColor = .label
@@ -181,12 +192,12 @@ extension AccountSummaryViewController {
         let userId = String(Int.random(in: 1...3))
         
         group.enter()
-        fetchProfile(forUserId: userId) { result in
+        profilemanager.fetchProfile(forUserId: userId) { result in
             switch result {
             case .success(let profile):
                 self.profile = profile
             case .failure(let error):
-                self.displayEror(error)
+                self.displayError(error)
             }
             group.leave()
         }
@@ -196,7 +207,7 @@ extension AccountSummaryViewController {
             case .success(let accounts):
                 self.accounts = accounts
             case .failure(let error):
-                self.displayEror(error)
+                self.displayError(error)
             }
             group.leave()
         }
@@ -227,18 +238,34 @@ extension AccountSummaryViewController {
                                          balance: $0.amount)
         }
     }
-    private func displayEror(_ error: NetworkError) {
+    private func displayError(_ error: NetworkError) {
+        let titleAndMessage = titleAndMessage(for: error)
+        self.showAlert(title: titleAndMessage.0, message: titleAndMessage.1)
+    }
+
+    private func titleAndMessage(for error: NetworkError) -> (String, String) {
+        let title: String
+        let message: String
         switch error {
-        case .decodingError:
-            self.showAlert(title: "Decoding Error", message: "We could not process your request. Please try again.")
         case .serverError:
-            self.showAlert(title: "Server Error", message: "Ensure you are connected to the internet. Please try again.")
+            title = "Server Error"
+            message = "We could not process your request. Please try again."
+        case .decodingError:
+            title = "Network Error"
+            message = "Ensure you are connected to the internet. Please try again."
         }
+        return (title, message)
     }
     private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-        alert.addAction(okAction)
-        present(alert, animated: true)
+        errorAlert.title = title
+        errorAlert.message = message
+        present(errorAlert, animated: true)
+    }
+}
+
+// MARK: Unit testing
+extension AccountSummaryViewController {
+    func titleAndMessageForTesting(for error: NetworkError) -> (String, String) {
+            return titleAndMessage(for: error)
     }
 }
