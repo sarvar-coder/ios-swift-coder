@@ -21,7 +21,7 @@ class AccountSummaryViewController: UIViewController {
     var tableView = UITableView()
     var headerView = AccountSummaryHeaderView(frame: .zero)
     let refreshControll = UIRefreshControl()
-        
+    
     lazy var logoutBarButtonItem: UIBarButtonItem = {
         let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
         barButtonItem.tintColor = .label
@@ -97,22 +97,19 @@ extension AccountSummaryViewController {
 
 extension AccountSummaryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        guard !accountsCellViewModel.isEmpty else {
-            let cell = UITableViewCell()
-            cell.textLabel?.text = "No data"
-            cell.imageView?.image = UIImage(systemName: "face.smiling", withConfiguration: UIImage.SymbolConfiguration(scale: .large))
-            return cell
-        }
-        
+        print(isLoaded)
         if isLoaded {
             let cell = tableView.dequeueReusableCell(withIdentifier: AccountSummaryCell.reuseId, for: indexPath) as! AccountSummaryCell
             let account = accountsCellViewModel[indexPath.row]
             cell.configure(with: account)
+            
+            return cell
+            
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: SkeletonCell.reuseID, for: indexPath) as! SkeletonCell
         
+            
         return cell
     }
     
@@ -173,7 +170,7 @@ extension AccountSummaryViewController {
     private func reset() {
         profile = nil
         accounts = []
-        isLoaded = false
+//        isLoaded = false
     }
 }
 
@@ -189,7 +186,7 @@ extension AccountSummaryViewController {
             case .success(let profile):
                 self.profile = profile
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayEror(error)
             }
             group.leave()
         }
@@ -199,7 +196,7 @@ extension AccountSummaryViewController {
             case .success(let accounts):
                 self.accounts = accounts
             case .failure(let error):
-                print(error.localizedDescription)
+                self.displayEror(error)
             }
             group.leave()
         }
@@ -229,5 +226,19 @@ extension AccountSummaryViewController {
                                          accountName: $0.name,
                                          balance: $0.amount)
         }
+    }
+    private func displayEror(_ error: NetworkError) {
+        switch error {
+        case .decodingError:
+            self.showAlert(title: "Decoding Error", message: "We could not process your request. Please try again.")
+        case .serverError:
+            self.showAlert(title: "Server Error", message: "Ensure you are connected to the internet. Please try again.")
+        }
+    }
+    private func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true)
     }
 }

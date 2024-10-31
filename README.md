@@ -197,3 +197,13 @@ Working with no storyboard
 - it's small indicator for reloading data every app has indicator. You cann see when you pull view to refresh 
 -----
 - skeleton loaders
+
+# Error Handling 
+ 
+ - How to manually test for network errors 
+ - How to fix them with pop-ups and alerts
+ - How to unit test network  code 
+ - How to build more robust application 
+ -----------
+ - when network gets lost we need to provide pop-up alert to user that represents the Server Error 
+ 
