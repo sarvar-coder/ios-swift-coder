@@ -18,9 +18,7 @@ class OnboardingViewController: UIViewController {
     var currentVC: UIViewController
     
     let closeButton = UIButton(type: .system)
-    let doneButton = UIButton(type: .system)
-    let nextButton = UIButton(type: .system)
-    let backButton = UIButton(type: .system)
+   
     
     weak var delegate: OnboardingViewControllerDelegate?
     
@@ -49,10 +47,7 @@ class OnboardingViewController: UIViewController {
         setup()
         style()
         layout()
-
     }
-    
-    
     
     private func setup() {
         view.backgroundColor = .systemPurple
@@ -79,50 +74,18 @@ class OnboardingViewController: UIViewController {
         closeButton.setTitle("Close", for: .normal)
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
-        
-        
-        doneButton.setTitle("Done", for: .normal)
-        doneButton.translatesAutoresizingMaskIntoConstraints = false
-        doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
-        doneButton.isHidden = true
-        
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.setTitle("Back", for: .normal)
-        backButton.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
-        
-        nextButton.translatesAutoresizingMaskIntoConstraints = false
-        nextButton.setTitle("Next", for: .normal)
-        nextButton.addTarget(self, action: #selector(nextTaped), for: .touchUpInside)
     }
     
     private func layout() {
         view.addSubview(closeButton)
-        view.addSubview(backButton)
-        view.addSubview(nextButton)
-        view.addSubview(doneButton)
+
         // close button
         NSLayoutConstraint.activate([
             closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
         ])
-        // back button
-        NSLayoutConstraint.activate([
-            backButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leadingAnchor, multiplier: 2),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: backButton.bottomAnchor, multiplier: 3)
-        ])
-        // next button
-        NSLayoutConstraint.activate([
-            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: nextButton.trailingAnchor, multiplier: 2),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: nextButton.bottomAnchor, multiplier: 3)
-        ])
-        // done button
-        NSLayoutConstraint.activate([
-            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalToSystemSpacingAfter: doneButton.trailingAnchor, multiplier: 2),
-            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalToSystemSpacingBelow: doneButton.bottomAnchor, multiplier: 3)
-        ])
     }
 }
-
 // MARK: - UIPageViewControllerDataSource
 extension OnboardingViewController: UIPageViewControllerDataSource {
     
@@ -164,23 +127,5 @@ extension OnboardingViewController {
     }
     @objc func doneTapped(_ sender: UIButton) {
         delegate?.didFinishOnboarding()
-    }
-    
-    @objc func nextTaped(_ sender: UIButton) {
-        guard let nextVC = getNextViewController(from: currentVC) else { return }
-        pageViewController.setViewControllers([nextVC], direction: .forward, animated: true) { _ in
-            if self.currentVC == self.pages[2] {
-                self.nextButton.isHidden = true
-                self.doneButton.isHidden = false
-            }
-        }
-    }
-    
-    @objc func backTapped(_ sender: UIButton) {
-        guard let previousVC = getPreviousViewController(from: currentVC) else { return }
-        pageViewController.setViewControllers([previousVC], direction: .reverse, animated: true) { _ in
-            self.nextButton.isHidden = false
-            self.doneButton.isHidden = true
-        }
     }
 }

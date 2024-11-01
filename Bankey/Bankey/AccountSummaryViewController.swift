@@ -23,7 +23,7 @@ class AccountSummaryViewController: UIViewController {
     let refreshControll = UIRefreshControl()
     
     // Networking
-    let profilemanager: ProfileManageable = ProfileManager()
+    var profilemanager: ProfileManageable = ProfileManager()
     
     // Error alert
     lazy var errorAlert: UIAlertController = {

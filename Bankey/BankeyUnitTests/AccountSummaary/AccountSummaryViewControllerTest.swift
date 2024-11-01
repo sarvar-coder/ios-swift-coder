@@ -34,7 +34,7 @@ class AccountSummaryViewControllerTests: XCTestCase {
 //         vc.loadViewIfNeeded()
         
         mockManager = MockProfileManager()
-        vc.profileManager = mockManager
+        vc.profilemanager = mockManager
     }
     
     func testTitleAndMessageForNetworkError() throws {

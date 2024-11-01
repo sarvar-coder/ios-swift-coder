@@ -28,8 +28,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         onboardingViewController.delegate = self
         
         registerForNotifications()
-        
-        displayLOginView()
+        window?.rootViewController = onboardingViewController
+//        displayLOginView()
         return true
     }
     
