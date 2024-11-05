@@ -12,6 +12,7 @@
 		5E1BC41C2CD5F69C00B6F2D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E1BC41B2CD5F69C00B6F2D5 /* Assets.xcassets */; };
 		5E1BC41F2CD5F69C00B6F2D5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5E1BC41D2CD5F69C00B6F2D5 /* LaunchScreen.storyboard */; };
 		5E1BC4292CD5F90B00B6F2D5 /* PasswordTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1BC4282CD5F90B00B6F2D5 /* PasswordTextFieldView.swift */; };
+		5EEEC7B22CD9D04E00F1D475 /* PasswordCriteriaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EEEC7B12CD9D04E00F1D475 /* PasswordCriteriaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5E1BC41E2CD5F69C00B6F2D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5E1BC4202CD5F69C00B6F2D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E1BC4282CD5F90B00B6F2D5 /* PasswordTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldView.swift; sourceTree = "<group>"; };
+		5EEEC7B12CD9D04E00F1D475 /* PasswordCriteriaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordCriteriaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				5E1BC4122CD5F69A00B6F2D5 /* AppDelegate.swift */,
 				5E1BC4162CD5F69A00B6F2D5 /* ViewController.swift */,
 				5E1BC4282CD5F90B00B6F2D5 /* PasswordTextFieldView.swift */,
+				5EEEC7B12CD9D04E00F1D475 /* PasswordCriteriaView.swift */,
 				5E1BC4262CD5F77E00B6F2D5 /* Files */,
 			);
 			path = Password;
@@ -144,6 +147,7 @@
 			files = (
 				5E1BC4172CD5F69A00B6F2D5 /* ViewController.swift in Sources */,
 				5E1BC4292CD5F90B00B6F2D5 /* PasswordTextFieldView.swift in Sources */,
+				5EEEC7B22CD9D04E00F1D475 /* PasswordCriteriaView.swift in Sources */,
 				5E1BC4132CD5F69A00B6F2D5 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
