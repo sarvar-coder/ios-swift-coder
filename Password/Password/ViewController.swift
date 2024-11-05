@@ -11,8 +11,10 @@ class ViewController: UIViewController {
 
     let stackView = UIStackView()
     let passwordTextField = PasswordTextField(placeHolderText: "New password ")
-    let criteriaView = PasswordCriteriaView(labelText: "Men buni yarata oldimmi")
-    
+    let statusView = PasswordStatusView()
+    let confirmPasswordTextField = PasswordTextField(placeHolderText: "Re-enter new password")
+    let resetButton = UIButton(type: .system)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -26,20 +28,30 @@ extension ViewController {
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
-        stackView.spacing = 20
+        stackView.spacing = 30
         
-        criteriaView.translatesAutoresizingMaskIntoConstraints = false
+        statusView.translatesAutoresizingMaskIntoConstraints = false
+        statusView.layer.cornerRadius = 5
+        stackView.clipsToBounds = true
         
+        confirmPasswordTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        resetButton.translatesAutoresizingMaskIntoConstraints = false
+        resetButton.configuration = .filled()
+        resetButton.setTitle("Reset password", for: [])
     }
     
     func layout() {
         stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(criteriaView)
+        stackView.addArrangedSubview(statusView)
+        stackView.addArrangedSubview(confirmPasswordTextField)
+        stackView.addArrangedSubview(resetButton)
+
         view.addSubview(stackView)
         
         NSLayoutConstraint.activate([
             stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
-            stackView.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2), // fix
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
     }
