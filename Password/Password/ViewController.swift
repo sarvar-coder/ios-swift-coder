@@ -25,6 +25,7 @@ class ViewController: UIViewController {
 extension ViewController {
     func style() {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.delegate = self
         
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -54,5 +55,13 @@ extension ViewController {
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 2), // fix
             stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
         ])
+    }
+}
+
+extension ViewController: PasswordTextFieldDelegate {
+    func editingChanged(_ sender: PasswordTextField) {
+        if sender === passwordTextField {
+            statusView.updateDisplay(sender.textField.text ?? "")
+        }
     }
 }
