@@ -20,7 +20,7 @@ class PasswordStatusView: UIView {
     let specialCharacterCriteriaView = PasswordCriteriaView(labelText: "special character (e.g. !@#$%^)")
 
     // Used to determine if we reset criteria back to empty state (⚪️).
-    private var shouldResetCriteria: Bool = true
+     var shouldResetCriteria: Bool = true
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -50,6 +50,35 @@ class PasswordStatusView: UIView {
         attrText.append(NSAttributedString(string: "criteria when setting your password:", attributes: plainTextAttributes))
 
         return attrText
+    }
+    
+    func reset() {
+        lengthCriteriaView.reset()
+        uppercaseCriteriaView.reset()
+        lowerCaseCriteriaView.reset()
+        digitCriteriaView.reset()
+        specialCharacterCriteriaView.reset()
+    }
+    
+    func validate(_ text: String) -> Bool {
+        let uppercaseMet = PasswordCriteria.upperCaseMet(text)
+        let lowercaseMet = PasswordCriteria.lowercaseMet(text)
+        let digitMet = PasswordCriteria.digitMet(text)
+        let specialCharacterMet = PasswordCriteria.specialCharMet(text)
+        let lengthMet = PasswordCriteria.lengthAnsNoSpace(text)
+        
+let boolArray = [uppercaseMet, lowercaseMet, digitMet, specialCharacterMet]
+        var returnTrue = 0
+        for i in boolArray {
+            if i == true {
+                returnTrue += 1
+            }
+        }
+        
+        if lengthMet && returnTrue >= 3 {
+            return true
+        }
+        return false
     }
 }
 
@@ -122,6 +151,13 @@ extension PasswordStatusView {
             specialCharMet
                 ? specialCharacterCriteriaView.isCriteriaMet = true
                 : specialCharacterCriteriaView.reset()
+        } else {
+            // Focus lost (✅ or ❌)
+            lengthCriteriaView.isCriteriaMet = lengthAndNoSpaceMet
+            uppercaseCriteriaView.isCriteriaMet = upperCaseMet
+            lowerCaseCriteriaView.isCriteriaMet = lowerCaseMet
+            digitCriteriaView.isCriteriaMet = digitMet
+            specialCharacterCriteriaView.isCriteriaMet = specialCharMet
         }
     }
 }
