@@ -29,7 +29,10 @@ extension ViewController {
         setupNewPassword()
         setupConfirmPassword()
         setupDismissKeyboardGesture()
+        setupKeyboardHiding()
     }
+    
+   
     
     private func setupNewPassword() {
         let newPasswordValidation: CustomValidation = { text in
@@ -81,6 +84,11 @@ extension ViewController {
         let dismissKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_: )))
         view.addGestureRecognizer(dismissKeyboardTap)
     }
+    
+    func setupKeyboardHiding() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
         
     @objc func viewTapped(_ recognizer: UITapGestureRecognizer) {
         view.endEditing(true) // resign first responder
@@ -102,6 +110,7 @@ extension ViewController {
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         resetButton.configuration = .filled()
         resetButton.setTitle("Reset password", for: [])
+        resetButton.addTarget(self, action: #selector(resetPasswordButtonTapped), for: .primaryActionTriggered)
     }
     
     func layout() {
@@ -135,5 +144,45 @@ extension ViewController: PasswordTextFieldDelegate {
         } else if sender == confirmPasswordTextField {
             _ = confirmPasswordTextField.validate()
         }
+    }
+}
+// MARK: Keyboard
+extension ViewController {
+    @objc func keyboardWillShow(sender: NSNotification) {
+        guard let currentTextField = UIResponder.currentFirst() as? UITextField else { return }
+    
+        guard let placeHolder = currentTextField.placeholder else { return }
+            
+        if placeHolder  == "Re-enter new password" {
+            view.frame.origin.y = view.frame.origin.y - 200
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        view.frame.origin.y = 0
+    }
+}
+
+// MARK: Actions
+extension ViewController {
+
+    @objc func resetPasswordButtonTapped(sender: UIButton) {
+        view.endEditing(true)
+
+        let isValidNewPassword = passwordTextField.validate()
+        let isValidConfirmPassword = confirmPasswordTextField.validate()
+
+        if isValidNewPassword && isValidConfirmPassword {
+            showAlert(title: "Success", message: "You have successfully changed your password.")
+        }
+    }
+
+    private func showAlert(title: String, message: String) {
+        let alert =  UIAlertController(title: "", message: "", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        alert.title = title
+        alert.message = message
+        present(alert, animated: true, completion: nil)
     }
 }
