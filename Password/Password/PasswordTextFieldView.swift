@@ -30,7 +30,7 @@ class PasswordTextField: UIView {
     let errorLabel = UILabel()
     
     let placeHolderText: String
-    var customValidation: CustomValidation? // add
+    var customValidation: CustomValidation?
     weak var delegate: PasswordTextFieldDelegate?
     
     var text: String? {
@@ -60,7 +60,7 @@ extension PasswordTextField {
     
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-//        backgroundColor = .systemOrange
+
         
         lockImageView.translatesAutoresizingMaskIntoConstraints = false
         

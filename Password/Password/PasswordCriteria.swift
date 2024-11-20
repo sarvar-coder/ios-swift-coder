@@ -13,7 +13,7 @@ struct PasswordCriteria {
     }
     
     static func noSpacesMet(_ text: String) -> Bool {
-        text.rangeOfCharacter(from: NSCharacterSet.whitespaces) == nil
+        text.rangeOfCharacter(from: NSCharacterSet.whitespacesAndNewlines) == nil
     }
     
     static func lengthAnsNoSpace(_ text: String) -> Bool {
